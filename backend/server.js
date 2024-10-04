@@ -6,9 +6,6 @@ const cors = require('cors');
 // Load environment variables
 dotenv.config();
 
-// console.log('Mongo URI:', process.env.MONGO_URI);
-
-
 // Connect to Database
 connectDB();
 
@@ -18,20 +15,10 @@ app.use(cors());
 app.use(express.json());
 
 // Import Routes
-const router = require('./routes/auth');
-const adminAccess = require('./routes/userRoutes');
-const userAccess = require('./routes/userRoutes');
-const taskAccess = require('./routes/taskRoutes');
-
-
-
+const router = require('./routes/blogRoutes');
 
 // Use Routes
 app.use('/api/auth', router);
-
-app.use('/api/admin', adminAccess);
-app.use('/api/user', userAccess);
-app.use('/api/task', taskAccess);
 
 // Start Server
 const PORT = process.env.PORT || 3000;
